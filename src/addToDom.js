@@ -21,30 +21,35 @@ function todoToDom(todo, parent) {
   parent.appendChild(todoItem);
 }
 
-function todoWindow(parent) {
-  const window = document.createElement("div");
-  window.classList.add("todo-window");
+//Todo window will be an object to access the form properties once the window is out
+function TodoWindow(parent) {
+  this.window = document.createElement("div");
+  this.form = document.createElement("form");
+  this.input = document.createElement("input");
+  this.button = document.createElement("button");
+  this.createWindow = function () {
+    this.window.classList.add("todo-window"); //Styling class
 
-  const form = document.createElement("form");
+    // create the text input
+    this.input.type = "text";
+    this.input.name = "name";
+    this.input.placeholder = "Enter todo title";
 
-  // create the text input
-  const input = document.createElement("input");
-  input.type = "text";
-  input.name = "name";
-  input.placeholder = "Enter todo title";
+    // create the submit button
+    this.button.type = "submit";
+    this.button.textContent = "Submit";
 
-  // create the submit button
-  const button = document.createElement("button");
-  button.type = "submit";
-  button.textContent = "Submit";
+    // add the input and button to the form
+    this.form.appendChild(this.input);
+    this.form.appendChild(this.button);
 
-  // add the input and button to the form
-  form.appendChild(input);
-  form.appendChild(button);
-
-  // add the form to the DOM
-  window.appendChild(form);
-  parent.appendChild(window);
+    // add the form to the DOM
+    this.window.appendChild(this.form);
+    parent.appendChild(this.window);
+  };
+  this.closeWindow = function () {
+    parent.removeChild(this.window);
+  };
 }
 
 function projectToDom(project, parent) {
@@ -53,4 +58,4 @@ function projectToDom(project, parent) {
   parent.appendChild(projectDom);
 }
 
-export { todoToDom, projectToDom, todoWindow };
+export { todoToDom, projectToDom, TodoWindow };
