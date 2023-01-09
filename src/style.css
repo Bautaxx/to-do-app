@@ -22,12 +22,14 @@ body {
 }
 
 .home > .todos {
+  position: relative;
   height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
-.buttonSection {
+
+.home > .buttonSection {
   height: 10%;
   position: relative;
 }
@@ -50,4 +52,14 @@ body {
   flex-direction: row;
   justify-content: space-evenly;
   font-size: 2em;
+}
+
+/*Window for adding a todo*/
+.home .todo-window {
+  height: 50%;
+  width: 60%;
+  position: absolute;
+  left: 20%;
+  top: 25%;
+  background-color: cyan;
 }

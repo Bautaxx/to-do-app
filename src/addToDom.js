@@ -21,10 +21,36 @@ function todoToDom(todo, parent) {
   parent.appendChild(todoItem);
 }
 
+function todoWindow(parent) {
+  const window = document.createElement("div");
+  window.classList.add("todo-window");
+
+  const form = document.createElement("form");
+
+  // create the text input
+  const input = document.createElement("input");
+  input.type = "text";
+  input.name = "name";
+  input.placeholder = "Enter todo title";
+
+  // create the submit button
+  const button = document.createElement("button");
+  button.type = "submit";
+  button.textContent = "Submit";
+
+  // add the input and button to the form
+  form.appendChild(input);
+  form.appendChild(button);
+
+  // add the form to the DOM
+  window.appendChild(form);
+  parent.appendChild(window);
+}
+
 function projectToDom(project, parent) {
   const projectDom = document.createElement("h2");
   projectDom.innerText = project.name;
   parent.appendChild(projectDom);
 }
 
-export { todoToDom, projectToDom };
+export { todoToDom, projectToDom, todoWindow };
