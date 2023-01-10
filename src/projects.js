@@ -1,7 +1,9 @@
 function Project(name) {
   this.name = name;
-  let todoArr = [];
-  function addToProject(todo) {
-    todoArr.push(todo);
-  }
+  this.todoArr = [];
+  this.addToProject = function (todo) {
+    this.todoArr.push(todo);
+  };
 }
+
+export { Project };
