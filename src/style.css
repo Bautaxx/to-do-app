@@ -1,4 +1,5 @@
 body {
+  font-family: "Inter", sans-serif !important;
 }
 
 .main-frame {
@@ -11,10 +12,46 @@ body {
 }
 
 .sidebar {
+  background-color: #f5f6f8;
   width: 30%;
-  background-color: rgb(221, 219, 219);
+  display: flex;
+  flex-direction: column;
 }
 
+.sidebar > .project {
+  margin-left: 10%;
+  margin-top: 2em;
+  font-family: "Inter", sans-serif !important;
+  font-size: 1.3em;
+  text-align: left;
+  background-color: transparent;
+  color: #42484e;
+  border-radius: 2em;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.sidebar > .project:hover {
+}
+
+.sidebar > .add-project {
+  background-color: transparent;
+  color: #42484e;
+  margin-top: 2em;
+  margin-left: 25%;
+  width: 50%;
+  border-color: transparent;
+  border-radius: 10%;
+  font-family: "Inter", sans-serif !important;
+  font-size: 1.5em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.sidebar > .project-window {
+  margin-left: 10%;
+  margin-top: 2em;
+}
 /*todo section*/
 .home {
   width: 70%;
@@ -44,6 +81,7 @@ body {
   border-color: transparent;
   background-color: rgb(11, 63, 153);
   color: white;
+  cursor: pointer;
 }
 
 /*Includes the three todo properties*/

@@ -1,7 +1,8 @@
 function Project(name) {
   this.name = name;
   this.todoArr = [];
-  this.element = document.createElement("h2");
+  this.element = document.createElement("button");
+  this.element.classList.add("project");
   this.addToProject = function (todo) {
     this.todoArr.push(todo);
   };
