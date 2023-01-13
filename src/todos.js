@@ -1,9 +1,7 @@
-function Todo(title, priority, date, status) {
+function Todo(title, date) {
   //Normal Properties
   this.title = title;
-  this.priority = priority;
   this.date = date;
-  this.status = status;
 
   //Dom elements of todo
   this.titleElement = document.createElement("div");
@@ -12,12 +10,12 @@ function Todo(title, priority, date, status) {
   this.todoItem = document.createElement("div");
 
   this.titleElement.innerText = this.title;
-  this.titleElement.classList.add("toDo-title");
+  this.titleElement.classList.add("todo-title");
 
   this.dateElement.innerText = this.date;
-  this.dateElement.classList.add("toDo-date");
+  this.dateElement.classList.add("todo-date");
 
-  this.statusElement.classList.add("toDo-status");
+  this.statusElement.classList.add("todo-status");
   this.statusElement.type = "checkbox";
 
   this.todoItem.classList.add("todo");

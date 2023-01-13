@@ -13,7 +13,7 @@ body {
 
 .sidebar {
   background-color: #f5f6f8;
-  width: 30%;
+  width: 20%;
   display: flex;
   flex-direction: column;
 }
@@ -23,6 +23,7 @@ body {
   margin-top: 2em;
   font-family: "Inter", sans-serif !important;
   font-size: 1.3em;
+  font-weight: 600;
   text-align: left;
   background-color: transparent;
   color: #42484e;
@@ -32,19 +33,21 @@ body {
 }
 
 .sidebar > .project:hover {
+  color: #16181a;
 }
 
 .sidebar > .add-project {
   background-color: transparent;
   color: #42484e;
+  width: 60%;
   margin-top: 2em;
-  margin-left: 25%;
-  width: 50%;
-  border-color: transparent;
-  border-radius: 10%;
+  margin-left: 20%;
+  padding: 10px;
+  border-color: #5d656d;
+  border-radius: 2em;
   font-family: "Inter", sans-serif !important;
-  font-size: 1.5em;
-  font-weight: bold;
+  font-size: 1.2em;
+  font-weight: 900;
   cursor: pointer;
 }
 
@@ -54,16 +57,20 @@ body {
 }
 /*todo section*/
 .home {
-  width: 70%;
+  position: relative;
+  margin-left: 5%;
+  width: 75%;
+  display: flex;
   flex-direction: column;
 }
 
-.home > .todos {
-  position: relative;
-  height: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+.home > #titleSection {
+  width: auto;
+  align-self: center;
+  height: 10%;
+}
+.home > #descriptionSection {
+  height: 20%;
 }
 
 .home > .buttonSection {
@@ -84,20 +91,32 @@ body {
   cursor: pointer;
 }
 
-/*Includes the three todo properties*/
-.todo {
+.home > .todos {
+  height: 60%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  font-size: 2em;
+  flex-direction: column;
+}
+
+.todos > .todo {
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 70% 20% 10%;
+  font-family: "Inter", sans-serif !important;
+  font-weight: normal;
+  font-size: 1.2em;
+}
+
+.todos > .todo > .todo-date {
+  text-align: center;
 }
 
 /*Window for adding a todo*/
-.home .todo-window {
-  height: 50%;
-  width: 60%;
+.home > .todo-window {
+  background-color: #f5f6f8;
   position: absolute;
-  left: 20%;
-  top: 25%;
-  background-color: cyan;
+  width: 60%;
+  height: 40%;
+  margin-top: 20%;
+  margin-left: 20%;
+  border-radius: 2em;
 }

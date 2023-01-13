@@ -3,8 +3,11 @@ import { Todo } from "./todos";
 import { todoToDom, Window } from "./addToDom";
 import { Project } from "./projects";
 
+const home = document.getElementById("home");
 const todoSection = document.getElementById("todos");
 const sidebar = document.getElementById("project-bar");
+const titleSection = document.getElementById("titleSection");
+const descriptionSection = document.getElementById("descriptionSection");
 const projectArray = [];
 
 //Creating default project for initial todos
@@ -22,13 +25,16 @@ const newButton = document.getElementById("add-todo");
 newButton.addEventListener("click", (e) => {
   //Creating a window only if it is not opened already
   if (!openedTodoWindow) {
-    const todoWindow = new Window(todoSection, "todo-window");
+    const todoWindow = new Window(home, "todo-window");
     todoWindow.createWindow();
     openedTodoWindow = true;
     //Event listener, input data -> new todo item
     todoWindow.form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const todo = new Todo(todoWindow.input.value, "bla", "bla", "bla");
+      const todo = new Todo(
+        todoWindow.textInput.value,
+        todoWindow.dateInput.value
+      );
       //Todos will be always added to the current onscreen project
       todo.showTodo(todoSection);
       currentProject.todoArr.push(todo); //change from default to the last clicked project
@@ -71,11 +77,19 @@ function makeCurrent(project) {
 }
 
 function displayProject(project) {
+  //This must be placed inside a function or the object
+  titleSection.appendChild(project.projectTitle);
+  descriptionSection.appendChild(project.projectDescription);
+
   for (let i = 0; i < project.todoArr.length; i++) {
     project.todoArr[i].showTodo(todoSection);
   }
 }
 function closeProject(project) {
+  //This must be placed inside a function or the object
+  titleSection.removeChild(project.projectTitle);
+  descriptionSection.removeChild(project.projectDescription);
+
   for (let i = 0; i < project.todoArr.length; i++) {
     project.todoArr[i].closeTodo(todoSection);
   }
